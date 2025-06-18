@@ -13,34 +13,41 @@ const HistoryPage = () => {
         {/* The vertical line in the middle of the timeline */}
         <div className="absolute top-0 bottom-0 left-1/2 w-1 bg-border-color rounded-full ml-[-2px] animate-growLine"></div>
 
-        {historyData.map((event, index) => (
-          <div 
-            key={index} 
-            className={`timeline-container p-2.5 md:px-10 relative w-full md:w-1/2 ${index % 2 !== 0 ? 'md:ml-[50%]' : ''} animate-fadeInUp opacity-0`} 
-            style={{ animationDelay: `${0.2 + index * 0.2}s` }}
-          >
-            {/* Positioning for left/right containers - removed problematic padding calculations */} 
-            <div className={`${index % 2 === 0 ? 'md:text-right' : ''} relative`}>
-              <div 
-                className={`timeline-content p-6 md:p-8 bg-card-bg border border-border-color backdrop-blur-md rounded-xl shadow-lg transition-all duration-300 hover:border-accent-color hover:scale-105 relative overflow-hidden`}
-                style={event.image ? {
-                  backgroundImage: `url(${event.image})`,
-                  backgroundSize: 'cover',
-                  backgroundPosition: 'center',
-                } : {}}
-              >
-                {/* The dot on the timeline - adjusted positioning assuming md:px-10 on parent */}
+        {historyData.map((event, index) => {
+          const isGenesisEvent = event.title === "The Genesis";
+          const textColorClass = isGenesisEvent ? 'text-black' : 'text-text-secondary';
+          const titleColorClass = isGenesisEvent ? 'text-black' : 'text-text-primary';
+          const yearColorClass = isGenesisEvent ? 'text-gray-700' : 'text-accent-color';
+
+          return (
+            <div 
+              key={index} 
+              className={`timeline-container p-2.5 md:px-10 relative w-full md:w-1/2 ${index % 2 !== 0 ? 'md:ml-[50%]' : ''} animate-fadeInUp opacity-0`} 
+              style={{ animationDelay: `${0.2 + index * 0.2}s` }}
+            >
+              {/* Positioning for left/right containers - removed problematic padding calculations */} 
+              <div className={`${index % 2 === 0 ? 'md:text-right' : ''} relative`}>
                 <div 
-                  className={`absolute top-6 w-5 h-5 bg-bg-color border-4 border-accent-color rounded-full z-10 animate-popIn opacity-0 ${index % 2 === 0 ? 'md:right-[-30px]' : 'md:left-[-30px]'} left-[-10px] md:left-auto`}
-                  style={{ animationDelay: `${0.3 + index * 0.2}s` }}
-                ></div>
-                <h2 className="timeline-year font-mono text-2xl font-semibold text-accent-color mb-2">{event.year}</h2>
-                <h3 className="timeline-title text-xl font-semibold mb-3 text-text-primary">{event.title}</h3>
-                <p className="timeline-text text-sm text-text-secondary leading-relaxed">{event.text}</p>
+                  className={`timeline-content p-6 md:p-8 bg-card-bg border border-border-color backdrop-blur-md rounded-xl shadow-lg transition-all duration-300 hover:border-accent-color hover:scale-105 relative overflow-hidden`}
+                  style={event.image ? {
+                    backgroundImage: `url(${event.image})`,
+                    backgroundSize: 'cover',
+                    backgroundPosition: 'center',
+                  } : {}}
+                >
+                  {/* The dot on the timeline - adjusted positioning assuming md:px-10 on parent */}
+                  <div 
+                    className={`absolute top-6 w-5 h-5 bg-bg-color border-4 border-accent-color rounded-full z-10 animate-popIn opacity-0 ${index % 2 === 0 ? 'md:right-[-30px]' : 'md:left-[-30px]'} left-[-10px] md:left-auto`}
+                    style={{ animationDelay: `${0.3 + index * 0.2}s` }}
+                  ></div>
+                  <h2 className={`timeline-year font-mono text-2xl font-semibold ${yearColorClass} mb-2`}>{event.year}</h2>
+                  <h3 className={`timeline-title text-xl font-semibold mb-3 ${titleColorClass}`}>{event.title}</h3>
+                  <p className={`timeline-text text-sm ${textColorClass} leading-relaxed`}>{event.text}</p>
+                </div>
               </div>
             </div>
-          </div>
-        ))}
+          );
+        })}
       </section>
     </div>
   );
