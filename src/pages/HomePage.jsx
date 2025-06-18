@@ -5,7 +5,7 @@ import homePageCards from '../data/homePageData.js'; // Import data
 // HomePage component
 const HomePage = () => {
   return (
-    <div className="animate-fadeInDown animation-duration-800 animation-ease-out">
+    <div className="animate-fadeInDown">
       {/* Page Header */}
       <header className="mb-8 md:mb-12">
         <h1 className="font-mono text-4xl md:text-5xl font-semibold text-text-primary mb-2">
@@ -22,7 +22,7 @@ const HomePage = () => {
           <Link 
             to={card.link} 
             key={card.id} // Use card.id as key if available and unique, otherwise card.title
-            className="info-card block bg-card-bg border border-border-color rounded-xl p-8 backdrop-blur-md transition-all duration-300 ease-in-out hover:transform hover:-translate-y-2 hover:shadow-2xl hover:shadow-accent-glow hover:border-accent-color animate-fadeInUp animation-ease-out"
+            className="info-card block bg-card-bg border border-border-color rounded-xl p-8 backdrop-blur-md transition-all duration-300 ease-in-out hover:transform hover:-translate-y-2 hover:shadow-2xl hover:shadow-accent-glow hover:border-accent-color animate-fadeInUp"
             style={{ animationDelay: `${index * 0.2}s` }}
           >
             <img src={card.icon} alt={`${card.title} icon`} className="w-12 h-12 mb-4" />
