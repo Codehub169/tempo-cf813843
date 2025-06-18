@@ -16,19 +16,14 @@ fi
 # Start the Vite development server on port 9000
 echo "Starting the development server on http://localhost:9000"
 
-# Check if port 9000 is already in use
-if lsof -Pi :9000 -sTCP:LISTEN -t >/dev/null ; then
-    echo "Port 9000 is already in use. Please free the port or configure a different one."
-    # Optionally, you can try to kill the process using the port:
-    # kill -9 $(lsof -Pi :9000 -sTCP:LISTEN -t)
-    # echo "Attempted to free port 9000."
-    # echo "Retrying to start the server..."
-    # npm run dev -- --port 9000
-else
-    npm run dev -- --port 9000
-fi
+# Directly attempt to start the server.
+# npm run dev (which runs vite) will stay in the foreground if successful.
+# Vite will error out if port 9000 is already in use.
+npm run dev -- --port 9000
 
+# The following lines are reached only if npm run dev exits.
+# $? will hold the exit status of npm run dev.
 if [ $? -ne 0 ]; then
-  echo "Failed to start the development server."
+  echo "Development server failed to start or exited unexpectedly."
   exit 1
 fi
