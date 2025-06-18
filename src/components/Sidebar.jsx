@@ -1,7 +1,7 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import navData from '../data/navData.js'; // Import navData
-import Logo from '../assets/logo.svg?react'; // Import logo as a React component
+// Removed: import Logo from '../assets/logo.svg?react';
 
 // Sidebar component for navigation
 const Sidebar = ({ isOpen, toggleSidebar }) => {
@@ -12,7 +12,7 @@ const Sidebar = ({ isOpen, toggleSidebar }) => {
     >
       {/* Sidebar Header with Logo */}
       <div className="flex items-center gap-4 mb-12">
-        <Logo className="w-12 h-12" /> {/* Use imported Logo component */}
+        <img src="http://34.28.45.117:8000/assets/4e16dde1b9994a64a071469a5c5f76b6.svg" alt="Logo" className="w-12 h-12" />
         <h1 className="font-mono text-2xl font-semibold text-text-primary">
           Linux<span className="text-accent-color">.</span>
         </h1>

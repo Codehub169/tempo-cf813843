@@ -5,9 +5,18 @@ import homePageCards from '../data/homePageData.js'; // Import data
 // HomePage component
 const HomePage = () => {
   return (
-    <div className="animate-fadeInDown">
+    <div 
+      className="animate-fadeInDown min-h-[calc(100vh-var(--header-height,6rem))]" // Assuming header height for better full page feel if needed
+      style={{
+        backgroundImage: `url('http://34.28.45.117:8000/assets/cf948273c7584e5dbe58871d0776e158.jpg')`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat',
+        // backgroundAttachment: 'fixed', // Optional: if you want a fixed background effect
+      }}
+    >
       {/* Page Header */}
-      <header className="mb-8 md:mb-12">
+      <header className="mb-8 md:mb-12 pt-8"> {/* Added pt-8 for spacing from top if bg is full */}
         <h1 className="font-mono text-4xl md:text-5xl font-semibold text-text-primary mb-2">
           Welcome to the Linux Portal<span className="text-accent-color">.</span>
         </h1>
