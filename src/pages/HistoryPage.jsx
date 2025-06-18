@@ -21,7 +21,14 @@ const HistoryPage = () => {
           >
             {/* Positioning for left/right containers - removed problematic padding calculations */} 
             <div className={`${index % 2 === 0 ? 'md:text-right' : ''} relative`}>
-              <div className={`timeline-content p-6 md:p-8 bg-card-bg border border-border-color backdrop-blur-md rounded-xl shadow-lg transition-all duration-300 hover:border-accent-color hover:scale-105`}>
+              <div 
+                className={`timeline-content p-6 md:p-8 bg-card-bg border border-border-color backdrop-blur-md rounded-xl shadow-lg transition-all duration-300 hover:border-accent-color hover:scale-105 relative overflow-hidden`}
+                style={event.image ? {
+                  backgroundImage: `url(${event.image})`,
+                  backgroundSize: 'cover',
+                  backgroundPosition: 'center',
+                } : {}}
+              >
                 {/* The dot on the timeline - adjusted positioning assuming md:px-10 on parent */}
                 <div 
                   className={`absolute top-6 w-5 h-5 bg-bg-color border-4 border-accent-color rounded-full z-10 animate-popIn opacity-0 ${index % 2 === 0 ? 'md:right-[-30px]' : 'md:left-[-30px]'} left-[-10px] md:left-auto`}

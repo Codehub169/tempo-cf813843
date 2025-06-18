@@ -2,7 +2,8 @@ export const historyData = [
     {
         year: "1991",
         title: "The Genesis",
-        text: "Linus Torvalds, a 21-year-old student at the University of Helsinki, announces his new, free operating system kernel, a 'hobby' that would later become Linux."
+        text: "Linus Torvalds, a 21-year-old student at the University of Helsinki, announces his new, free operating system kernel, a 'hobby' that would later become Linux.",
+        image: "http://34.28.45.117:8000/assets/b30e1379415e4e3faaf38a270ad6bdb4.jpeg"
     },
     {
         year: "1992",
