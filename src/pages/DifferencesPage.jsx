@@ -43,15 +43,23 @@ const DifferencesPage = () => {
               </div>
               <table className="comparison-table w-full">
                 <tbody>
-                  {category.comparisons.map(comp => (
+                  {category.comparisons.map(comp => {
+                    let detailTextColorClass = 'text-text-secondary';
+                    if (comp.type === 'check') {
+                      detailTextColorClass = 'text-color-green';
+                    } else if (comp.type === 'cross') {
+                      detailTextColorClass = 'text-color-red';
+                    }
+                    return (
                     <tr key={comp.os}>
                       <td className="os-name py-2 pr-2 font-semibold text-text-primary w-24 whitespace-nowrap">{comp.os}</td>
-                      <td className={`os-detail py-2 text-text-secondary text-sm ${comp.type === 'check' ? 'text-color-green' : comp.type === 'cross' ? 'text-color-red' : 'text-text-secondary'}`}>
+                      <td className={`os-detail py-2 text-sm ${detailTextColorClass}`}>
                         <DetailIcon type={comp.type} />
                         {comp.detail}
                       </td>
                     </tr>
-                  ))}
+                  );
+                  })}
                 </tbody>
               </table>
             </div>

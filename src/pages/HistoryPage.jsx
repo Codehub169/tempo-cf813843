@@ -16,13 +16,13 @@ const HistoryPage = () => {
         {historyData.map((event, index) => (
           <div 
             key={index} 
-            className={`timeline-container p-2.5 md:px-10 relative w-full md:w-1/2 animate-fadeInUp opacity-0`} 
+            className={`timeline-container p-2.5 md:px-10 relative w-full md:w-1/2 ${index % 2 !== 0 ? 'md:ml-[50%]' : ''} animate-fadeInUp opacity-0`} 
             style={{ animationDelay: `${0.2 + index * 0.2}s` }}
           >
-            {/* Positioning for left/right containers */}
-            <div className={`${index % 2 === 0 ? 'md:text-right md:pr-[calc(50%+20px)]' : 'md:left-1/2 md:pl-[calc(50%+20px)]'} relative`}>
-              <div className={`timeline-content p-8 bg-card-bg border border-border-color backdrop-blur-md rounded-xl shadow-lg transition-all duration-300 hover:border-accent-color hover:scale-105`}>
-                {/* The dot on the timeline */}
+            {/* Positioning for left/right containers - removed problematic padding calculations */} 
+            <div className={`${index % 2 === 0 ? 'md:text-right' : ''} relative`}>
+              <div className={`timeline-content p-6 md:p-8 bg-card-bg border border-border-color backdrop-blur-md rounded-xl shadow-lg transition-all duration-300 hover:border-accent-color hover:scale-105`}>
+                {/* The dot on the timeline - adjusted positioning assuming md:px-10 on parent */}
                 <div 
                   className={`absolute top-6 w-5 h-5 bg-bg-color border-4 border-accent-color rounded-full z-10 animate-popIn opacity-0 ${index % 2 === 0 ? 'md:right-[-30px]' : 'md:left-[-30px]'} left-[-10px] md:left-auto`}
                   style={{ animationDelay: `${0.3 + index * 0.2}s` }}
