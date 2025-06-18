@@ -1,8 +1,15 @@
+import CostIcon from '../assets/icons/costIcon.svg?react';
+import CustomizationIcon from '../assets/icons/customizationIcon.svg?react';
+import SecurityIcon from '../assets/icons/securityIcon.svg?react';
+import SoftwareIcon from '../assets/icons/softwareIcon.svg?react';
+import CommandLineIcon from '../assets/icons/commandLineIcon.svg?react';
+import HardwareIcon from '../assets/icons/hardwareIcon.svg?react';
+
 export const differencesData = [
     {
         id: "cost",
         title: "Cost",
-        icon: "CostIcon", // Placeholder for actual icon import
+        icon: CostIcon,
         comparisons: [
             { os: "Linux", detail: "Free", type: "check" },
             { os: "Windows", detail: "Paid License", type: "cross" },
@@ -12,7 +19,7 @@ export const differencesData = [
     {
         id: "customization",
         title: "Customization",
-        icon: "CustomizationIcon", // Placeholder for actual icon import
+        icon: CustomizationIcon,
         comparisons: [
             { os: "Linux", detail: "Extremely High", type: "check" },
             { os: "Windows", detail: "Moderate", type: "neutral" },
@@ -22,7 +29,7 @@ export const differencesData = [
     {
         id: "security",
         title: "Security",
-        icon: "SecurityIcon", // Placeholder for actual icon import
+        icon: SecurityIcon,
         comparisons: [
             { os: "Linux", detail: "Very High (by design)", type: "check" },
             { os: "Windows", detail: "Good (common target)", type: "neutral" },
@@ -32,7 +39,7 @@ export const differencesData = [
     {
         id: "software",
         title: "Software",
-        icon: "SoftwareIcon", // Placeholder for actual icon import
+        icon: SoftwareIcon,
         comparisons: [
             { os: "Linux", detail: "Massive FOSS library", type: "check" },
             { os: "Windows", detail: "Largest commercial library", type: "check" },
@@ -42,7 +49,7 @@ export const differencesData = [
     {
         id: "command-line",
         title: "Command Line",
-        icon: "CommandLineIcon", // Placeholder for actual icon import
+        icon: CommandLineIcon,
         comparisons: [
             { os: "Linux", detail: "Powerful (Bash/Zsh)", type: "check" },
             { os: "Windows", detail: "Improving (PowerShell/WSL)", type: "neutral" },
@@ -52,7 +59,7 @@ export const differencesData = [
     {
         id: "hardware",
         title: "Hardware",
-        icon: "HardwareIcon", // Placeholder for actual icon import
+        icon: HardwareIcon,
         comparisons: [
             { os: "Linux", detail: "Extremely broad support", type: "check" },
             { os: "Windows", detail: "Excellent driver support", type: "check" },

@@ -1,12 +1,7 @@
 import React from 'react';
+import { differencesData } from '../data/differencesPageData.js'; // Import data
 
-// Placeholder for actual SVG icons - to be replaced with imports from src/assets/icons/
-const PlaceholderIcon = ({ className }) => (
-  <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-    <circle cx="12" cy="12" r="10"></circle>
-  </svg>
-);
-
+// Helper icons for comparison details
 const CheckIcon = () => (
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-4.5 h-4.5 inline mr-2 align-middle"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
 );
@@ -18,71 +13,6 @@ const CrossIcon = () => (
 const NeutralIcon = () => (
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-4.5 h-4.5 inline mr-2 align-middle"><circle cx="12" cy="12" r="10"></circle><line x1="8" y1="12" x2="16" y2="12"></line></svg>
 );
-
-
-// Placeholder data - to be moved to src/data/differencesPageData.js
-const differencesData = [
-  {
-    id: 'cost',
-    title: 'Cost',
-    icon: PlaceholderIcon, // To be replaced with CostIcon import
-    comparisons: [
-      { os: 'Linux', detail: 'Free', type: 'check' },
-      { os: 'Windows', detail: 'Paid License', type: 'cross' },
-      { os: 'macOS', detail: 'Bundled with hardware', type: 'neutral' },
-    ]
-  },
-  {
-    id: 'customization',
-    title: 'Customization',
-    icon: PlaceholderIcon, // To be replaced with CustomizationIcon import
-    comparisons: [
-      { os: 'Linux', detail: 'Extremely High', type: 'check' },
-      { os: 'Windows', detail: 'Moderate', type: 'neutral' },
-      { os: 'macOS', detail: 'Low', type: 'cross' },
-    ]
-  },
-  {
-    id: 'security',
-    title: 'Security',
-    icon: PlaceholderIcon, // To be replaced with SecurityIcon import
-    comparisons: [
-      { os: 'Linux', detail: 'Very High (by design)', type: 'check' },
-      { os: 'Windows', detail: 'Good (common target)', type: 'neutral' },
-      { os: 'macOS', detail: 'Very High (Unix-based)', type: 'check' },
-    ]
-  },
-  {
-    id: 'software',
-    title: 'Software',
-    icon: PlaceholderIcon, // To be replaced with SoftwareIcon import
-    comparisons: [
-      { os: 'Linux', detail: 'Massive FOSS library', type: 'check' },
-      { os: 'Windows', detail: 'Largest commercial library', type: 'check' },
-      { os: 'macOS', detail: 'Curated, quality library', type: 'neutral' },
-    ]
-  },
-  {
-    id: 'command-line',
-    title: 'Command Line',
-    icon: PlaceholderIcon, // To be replaced with CommandLineIcon import
-    comparisons: [
-      { os: 'Linux', detail: 'Powerful (Bash/Zsh)', type: 'check' },
-      { os: 'Windows', detail: 'Improving (PowerShell/WSL)', type: 'neutral' },
-      { os: 'macOS', detail: 'Powerful (Zsh)', type: 'check' },
-    ]
-  },
-  {
-    id: 'hardware',
-    title: 'Hardware',
-    icon: PlaceholderIcon, // To be replaced with HardwareIcon import
-    comparisons: [
-      { os: 'Linux', detail: 'Extremely broad support', type: 'check' },
-      { os: 'Windows', detail: 'Excellent driver support', type: 'check' },
-      { os: 'macOS', detail: 'Limited to Apple hardware', type: 'cross' },
-    ]
-  }
-];
 
 const DetailIcon = ({ type }) => {
   if (type === 'check') return <CheckIcon />;
@@ -100,7 +30,7 @@ const DifferencesPage = () => {
 
       <section className="comparison-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {differencesData.map((category, index) => {
-          const IconComponent = category.icon;
+          const IconComponent = category.icon; // Icon is now an imported React component
           return (
             <div 
               key={category.id} 

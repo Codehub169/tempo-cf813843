@@ -1,99 +1,6 @@
 import React from 'react';
 import CodeBlock from '../components/CodeBlock';
-
-// Placeholder data - to be moved to src/data/usagePageData.js
-const usageData = [
-  {
-    id: 'ls',
-    name: 'ls',
-    description: 'List directory contents.',
-    examples: [
-      {
-        comment: '# List files in the current directory',
-        command: 'ls',
-        output: 'Documents  Downloads  Music  Pictures  Videos'
-      },
-      {
-        comment: '# List all files, including hidden ones, in long format',
-        command: 'ls -la',
-        output: 'drwxr-xr-x 1 user user 4096 Oct 26 10:00 .\ndrwxr-xr-x 1 user user 4096 Oct 25 09:00 ..\n-rw-r--r-- 1 user user  220 Oct 25 09:00 .bash_logout'
-      }
-    ]
-  },
-  {
-    id: 'cd',
-    name: 'cd',
-    description: 'Change the current directory.',
-    examples: [
-      {
-        comment: '# Navigate into the \'Documents\' directory',
-        command: 'cd Documents',
-        prompt: '$'
-      },
-      {
-        comment: '# Go back to the parent directory',
-        command: 'cd ..',
-        prompt: '~/Documents$'
-      },
-      {
-        comment: '# Go to your home directory',
-        command: 'cd',
-        prompt: '/some/other/path$'
-      }
-    ]
-  },
-  {
-    id: 'pwd',
-    name: 'pwd',
-    description: 'Print the name of the current working directory.',
-    examples: [
-      {
-        prompt: '~/Documents/Projects$',
-        command: 'pwd',
-        output: '/home/user/Documents/Projects'
-      }
-    ]
-  },
-  {
-    id: 'mkdir',
-    name: 'mkdir',
-    description: 'Make directories.',
-    examples: [
-      {
-        comment: '# Create a new directory named \'new-project\'',
-        command: 'mkdir new-project'
-      },
-      {
-        comment: '# Create nested directories',
-        command: 'mkdir -p path/to/my/app'
-      }
-    ]
-  },
-  {
-    id: 'cat',
-    name: 'cat',
-    description: 'Concatenate and display files.',
-    examples: [
-      {
-        comment: '# Display the content of a file',
-        command: 'cat readme.txt',
-        output: 'Hello, this is a readme file.\nIt contains important information.'
-      }
-    ]
-  },
-  {
-    id: 'sudo',
-    name: 'sudo',
-    description: 'Execute a command as another user (typically the superuser).',
-    examples: [
-      {
-        comment: '# Install a package using the system\'s package manager',
-        command: 'sudo apt-get install htop',
-        output: '[sudo] password for user: ********'
-      }
-    ]
-  }
-];
+import { usageData } from '../data/usagePageData.js'; // Import data
 
 const UsagePage = () => {
   return (
@@ -105,7 +12,7 @@ const UsagePage = () => {
 
       {usageData.map((command, index) => (
         <section 
-          key={command.id} 
+          key={command.name} // Assuming command.name is unique for keys, or use command.id if available
           className="command-section mb-12 animate-fadeInUp opacity-0"
           style={{ animationDelay: `${0.1 + index * 0.1}s`, animationFillMode: 'forwards' }}
         >
