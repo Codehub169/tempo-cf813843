@@ -54,3 +54,6 @@
 }
 
 /* Custom utility classes or component styles can be added here if needed */
+.nav-link-active .nav-icon {
+  filter: brightness(0) invert(0.1);
+}

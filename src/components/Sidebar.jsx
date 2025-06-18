@@ -28,7 +28,8 @@ const Sidebar = ({ isOpen, toggleSidebar }) => {
                 onClick={isOpen ? toggleSidebar : undefined} // Close sidebar on mobile when a link is clicked
                 className={({ isActive }) =>
                   `flex items-center gap-4 p-3 rounded-lg text-text-secondary font-medium hover:bg-white/5 hover:text-text-primary transition-colors duration-300 ` +
-                  (isActive ? 'bg-accent-color text-bg-color font-semibold shadow-lg shadow-accent-glow nav-link-active' : '')
+                  (isActive ? 'bg-accent-color text-bg-color font-semibold shadow-lg shadow-accent-glow nav-link-active' : 
+'')
                 }
               >
                 <img src={item.icon} alt={`${item.name} icon`} className="w-6 h-6 nav-icon" />
@@ -43,11 +44,6 @@ const Sidebar = ({ isOpen, toggleSidebar }) => {
       <div className="mt-auto text-center text-xs text-text-secondary">
         <p>&copy; {new Date().getFullYear()} Linux Portal. Purely for design.</p>
       </div>
-      <style jsx global>{`
-        .nav-link-active .nav-icon {
-          filter: brightness(0) invert(0.1);
-        }
-      `}</style>
     </aside>
   );
 };
