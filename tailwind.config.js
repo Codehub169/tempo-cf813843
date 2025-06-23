@@ -15,7 +15,7 @@ export default {
         'accent-color': '#A7BED3',
         'accent-glow': 'rgba(167, 190, 211, 0.3)',
         'card-bg': 'rgba(224, 231, 233, 0.7)',
-        'code-bg': '#E0E7E9',
+        'code-bg': '#2D3748',
         'color-green': '#B8D8C8',
         'color-red': '#F0B8B8',
       },
