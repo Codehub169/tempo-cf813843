@@ -6,6 +6,7 @@ const ParticleBackground = () => {
 
   useEffect(() => {
     const canvas = canvasRef.current;
+    if (!canvas) return;
     const ctx = canvas.getContext('2d');
     let particles = [];
     const particleCount = 50;
@@ -24,7 +25,7 @@ const ParticleBackground = () => {
         this.size = Math.random() * 2 + 1;
         this.speedX = Math.random() * 1 - 0.5;
         this.speedY = Math.random() * 1 - 0.5;
-        this.color = 'rgba(88, 166, 255, 0.5)'; // Accent color with opacity
+        this.color = 'rgba(255, 121, 198, 0.5)'; // Accent color with opacity
       }
       update() {
         if (this.x > canvas.width || this.x < 0) this.speedX *= -1;
