@@ -19,8 +19,8 @@ const CodeBlock = ({ codeString, language = 'bash', showLineNumbers = false }) =
   // Custom style for the syntax highlighter to match the theme
   const customStyle = {
     ...vscDarkPlus,
-    'pre[class*=\"language-\"]': {
-      ...vscDarkPlus['pre[class*=\"language-\"]'],
+    'pre[class*="language-"]': {
+      ...vscDarkPlus['pre[class*="language-"]'],
       backgroundColor: 'var(--code-bg)', // Use CSS variable for background
       border: 'none',
       padding: '1rem',
@@ -28,8 +28,8 @@ const CodeBlock = ({ codeString, language = 'bash', showLineNumbers = false }) =
       fontSize: '0.95rem',
       lineHeight: '1.5',
     },
-    'code[class*=\"language-\"]': {
-        ...vscDarkPlus['code[class*=\"language-\"]'],
+    'code[class*="language-"]': {
+        ...vscDarkPlus['code[class*="language-"]'],
         fontFamily: 'var(--font-mono)', // Use Fira Code font
     },
     // Attempt to style tokens similar to HTML preview, may require specific theme or more granular control
@@ -41,13 +41,13 @@ const CodeBlock = ({ codeString, language = 'bash', showLineNumbers = false }) =
   };
 
   return (
-    <div className=\"code-block bg-code-bg border border-border-color rounded-lg font-mono text-sm relative my-4 shadow-md\">
-      {/* Header for the code block (e.g., language name, copy button) */}\
-      <div className=\"code-block-header px-4 py-2 bg-sidebar-bg border-b border-border-color flex justify-between items-center text-text-secondary text-xs\">
+    <div className="code-block bg-code-bg border border-border-color rounded-lg font-mono text-sm relative my-4 shadow-md">
+      {/* Header for the code block (e.g., language name, copy button) */}
+      <div className="code-block-header px-4 py-2 bg-sidebar-bg border-b border-border-color flex justify-between items-center text-text-secondary text-xs">
         <span>{language}</span>
         <button 
           onClick={handleCopy}
-          className=\"copy-button bg-transparent border border-border-color text-text-secondary px-2 py-1 rounded-md hover:text-text-primary hover:border-accent-color transition-colors duration-200\"
+          className="copy-button bg-transparent border border-border-color text-text-secondary px-2 py-1 rounded-md hover:text-text-primary hover:border-accent-color transition-colors duration-200"
         >
           {isCopied ? 'Copied!' : 'Copy'}
         </button>
